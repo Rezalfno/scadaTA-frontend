@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Lock, User, Eye, EyeOff } from 'lucide-react';
 import axios from 'axios';
+import { BASE_URL } from '../config/api';
 
 interface LoginPageProps {
   onLogin: () => void;
@@ -18,7 +19,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
     try {
 
       const res = await axios.post(
-        "http://localhost:3000/api/auth/login", 
+        `${BASE_URL}/api/auth/login`,
         {
           username: username,
           password: password

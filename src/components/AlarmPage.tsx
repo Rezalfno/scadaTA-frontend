@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ArrowLeft, Bell, Calendar } from 'lucide-react';
+import { BASE_URL } from '../config/api';
 
 interface AlarmPageProps {
   onBack: () => void;
@@ -17,7 +18,7 @@ export function AlarmPage({ onBack }: AlarmPageProps) {
     try {
 
       const response = await fetch(
-        'http://localhost:3000/api/alarm/history'
+        `${BASE_URL}/api/alarm/history`
       );
 
       const data = await response.json();

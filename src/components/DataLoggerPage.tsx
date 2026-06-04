@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ArrowLeft, Download, Calendar } from 'lucide-react';
+import { BASE_URL } from '../config/api';
 
 interface DataLoggerPageProps {
   onBack: () => void;
@@ -19,7 +20,7 @@ export function DataLoggerPage({ onBack }: DataLoggerPageProps) {
       try {
 
         const response = await fetch(
-          'http://localhost:3000/api/data/datalogger'
+          `${BASE_URL}/api/data/datalogger`
         );
 
         const data = await response.json();

@@ -1,6 +1,7 @@
 import { ArrowLeft } from 'lucide-react';
 import { useEffect, useState } from "react";
 import { getLatestProduction } from "../services/production.service";
+import { BASE_URL } from "../config/api";
 
 interface CircularGaugeProps {
   value: number;
@@ -107,7 +108,7 @@ useEffect(() => {
     try {
 
       const res = await fetch(
-        'http://localhost:3000/api/data/history'
+        `${BASE_URL}/api/data/history`
       );
 
       const data = await res.json();
