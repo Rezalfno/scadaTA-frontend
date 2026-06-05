@@ -62,7 +62,7 @@ export function AlarmPage({ onBack }: AlarmPageProps) {
         {/* Header */}
         <div className="flex items-center justify-between mb-6 bg-gray-900 border-4 border-gray-800 p-4">
           <button
-            onClick={onBack}
+            onClick={onBack}  
             className="flex items-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 border-2 border-red-800 shadow-md transition-colors"
           >
             <ArrowLeft className="w-5 h-5 text-white" />
@@ -179,21 +179,29 @@ export function AlarmPage({ onBack }: AlarmPageProps) {
 
                       <td className="p-4 text-center">
 
-                        <span
-                          className={`
-                            px-3 py-1 rounded text-xs font-bold
+                       <span
+                        className={`
+                          px-3
+                          py-1
+                          rounded
+                          text-xs
+                          font-bold
+                          text-white
 
-                            ${
-                              alarm.status === 'ACTIVE'
-                              ? 'bg-red-600 text-white'
-                              : 'bg-green-600 text-white'
-                            }
-                          `}
-                        >
+                          ${
+                            alarm.status === 'ACTIVE' ||
+                            alarm.status === 'FAULT'
+                              ? 'bg-red-600'
+                              : alarm.status === 'CLEARED'
+                              ? 'bg-green-600'
+                              : 'bg-gray-600'
+                          }
+                        `}
+                      >
 
-                          {alarm.status}
+                        {alarm.status}
 
-                        </span>
+                      </span>
 
                       </td>
 
